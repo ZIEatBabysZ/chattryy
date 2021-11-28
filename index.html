@@ -8,12 +8,7 @@
         const sendBtn = document.querySelector('#send');
         const messages = document.querySelector('#messages');
         const messageBox = document.querySelector('#messageBox');
-        document.addEventListener("keyup", function(e){
-
-            if(e.keyCode === 13){
-                sendBtn.dispatchEvent(sendBtn.onclick);
-            }
-        })
+        
         
         let ws;
 
@@ -53,8 +48,17 @@
             let kadi = url.searchParams.get("kadi");
             console.log(kadi);
             ws.send(kadi + ": " + messageBox.value.trim());
-            showMessage(kadi + ": " + messageBox.value.trim());
+            showMessage(kadi + ": " + messageBox.value.trim());  
+
         }
+
+
+        document.addEventListener("keyup", function(e){
+
+                if(e.keyCode === 13){
+                    sendBtn.onclick();
+                }
+                })
 
         init();
     })();
