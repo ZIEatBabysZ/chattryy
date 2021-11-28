@@ -8,6 +8,12 @@
         const sendBtn = document.querySelector('#send');
         const messages = document.querySelector('#messages');
         const messageBox = document.querySelector('#messageBox');
+        document.addEventListener("keyup", function(e){
+
+            if(e.keyCode === 13){
+                sendBtn.dispatchEvent(sendBtn.onclick);
+            }
+        })
         
         let ws;
 
@@ -22,7 +28,7 @@
                 ws.onerror = ws.onopen = ws.onclose = null;
                 ws.close();
             }
-            ws = new WebSocket('ws://chattryy.herokuapp.com:3131');
+            ws = new WebSocket('ws://chattryy.herokuapp.com');
             ws.onopen = () => {
                 console.log('Connection opened!');
             }
