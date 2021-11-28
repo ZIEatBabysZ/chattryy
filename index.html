@@ -22,7 +22,7 @@
                 ws.onerror = ws.onopen = ws.onclose = null;
                 ws.close();
             }
-            ws = new WebSocket('ws://localhost:3131');
+            ws = new WebSocket('ws://chattryy.herokuapp.com:3131');
             ws.onopen = () => {
                 console.log('Connection opened!');
             }
